@@ -126,13 +126,20 @@ All time-based calculations leverage a proper Date Dimension table.
 
 ## 📂 Repository Structure
 ```
-/sql
-01_housing_warehouse_setup.sql
-
-/powerbi
-Housing_Market_Analytics.pbix
-
-README.md
+housing-market-analytics-bigquery-powerbi/
+│
+├── sql/
+│   └── 01_housing_warehouse_setup.sql
+│
+├── screenshots/
+│   ├── 01_house-market-overview.png
+│   ├── 02_sales-performance-analytics.png
+│   └── 03_pricing-and-market-drivers.png
+│
+├── powerbi/
+│   └── denmark_housing_market_dashboard.pbix
+│
+└── README.md
 ```
 
 ---
