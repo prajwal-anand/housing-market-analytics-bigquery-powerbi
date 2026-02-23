@@ -1,5 +1,5 @@
 # 🏠 Housing Market Analytics  
-### BigQuery Data Warehouse + Power BI Executive Dashboard
+### BigQuery Data Warehouse & Power BI Executive Dashboard
 
 ---
 
