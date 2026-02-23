@@ -1,5 +1,7 @@
 # 🏠 Housing Market Analytics  
 ### BigQuery Data Warehouse & Power BI Executive Dashboard
+An end-to-end real estate analytics solution built using a modern cloud data warehouse architecture.  
+This project demonstrates data modeling, SQL transformation logic, DAX time intelligence, and executive dashboard storytelling.
 
 ---
 
@@ -216,7 +218,7 @@ housing-market-analytics-bigquery-powerbi/
 ## 🚀 How to Reproduce
 
 1. Upload raw housing CSV into BigQuery
-2. Run SQL script in `/sql` folder
+2. Run the warehouse setup script in /sql
 3. Connect Power BI to transformed table
 4. Refresh semantic model
 5. Explore dashboard
@@ -236,7 +238,8 @@ housing-market-analytics-bigquery-powerbi/
 
 ## 📬 Author
 
-**Prajwal Anand**
+**Prajwal Anand**  
+Data & Business Intelligence Enthusiast  
 
 If you found this project interesting or would like to collaborate, feel free to connect.
 
