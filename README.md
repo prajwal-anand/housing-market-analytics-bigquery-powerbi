@@ -171,3 +171,73 @@ Examples of analytical measures implemented:
 ## 🗄 SQL Warehouse Script
 
 All warehouse setup logic is available in:
+sql/01_housing_warehouse_setup.sql
+
+This script:
+
+- Creates raw table
+- Builds transformed table
+- Applies business logic
+- Creates analytical view layer
+
+---
+
+## 📁 Repository Structure
+```
+housing-market-analytics-bigquery-powerbi/
+│
+├── sql/
+│ └── 01_housing_warehouse_setup.sql
+│
+├── screenshots/
+│ ├── 01_house-market-overview.png
+│ ├── 02_sales-performance-analytics.png
+│ └── 03_pricing-and-market-drivers.png
+│
+├── powerbi/
+│ └── denmark_housing_market_dashboard.pbix
+│
+└── README.md
+```
+
+---
+
+## 🛠 Tech Stack
+
+- Google BigQuery
+- Standard SQL
+- Power BI Desktop
+- DAX
+- Data Modeling
+- GitHub (Version Control)
+
+---
+
+## 🚀 How to Reproduce
+
+1. Upload raw housing CSV into BigQuery
+2. Run SQL script in `/sql` folder
+3. Connect Power BI to transformed table
+4. Refresh semantic model
+5. Explore dashboard
+
+---
+
+## 📌 Project Highlights
+
+✔ End-to-end analytics pipeline  
+✔ Structured data warehouse approach  
+✔ Clean semantic modeling  
+✔ Advanced DAX time intelligence  
+✔ Executive-level dashboard design  
+✔ Business-oriented storytelling  
+
+---
+
+## 📬 Author
+
+**Prajwal Anand**
+
+If you found this project interesting or would like to collaborate, feel free to connect.
+
+
