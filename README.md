@@ -1,170 +1,173 @@
-# 🏠 Housing Market Analytics Platform  
+# 🏠 Housing Market Analytics  
 ### BigQuery Data Warehouse + Power BI Executive Dashboard
 
 ---
 
-## 📌 Overview
+## 📌 Project Overview
 
-This project implements an end-to-end housing market analytics platform using **Google BigQuery** and **Power BI**.
+This project analyzes historical residential housing data to uncover:
 
-It transforms raw transactional housing data into a structured data warehouse and delivers executive-level insights on:
+- Sales performance trends  
+- Pricing behavior across property types  
+- Regional market dynamics  
+- Macroeconomic influence on property values  
 
-- Regional market performance  
-- Property pricing dynamics  
-- Sales growth trends  
-- Macroeconomic impact (inflation, interest rates, bond yields)  
+The solution follows a structured data architecture:
 
-This project demonstrates a **Data Engineering + BI Hybrid (Analytics Engineering) approach**.
+**Raw Layer → Transformed Layer → Analytical View → Power BI Semantic Model**
 
----
+Built using:
 
-## 🎯 Business Objective
-
-Enable real estate investors, analysts, and financial institutions to monitor housing market performance through structured KPIs and time-intelligence metrics.
-
-Key questions answered:
-
-- Which regions are driving sales growth?
-- How are property prices changing YoY?
-- What is the current market momentum (YTD & LTM)?
-- How do macroeconomic indicators influence housing performance?
-- Which property types show stronger negotiation gaps?
+- **Google BigQuery** (Data Warehouse & SQL transformations)
+- **Power BI** (Data modeling, DAX, and dashboard design)
 
 ---
 
-## 🏗 Architecture
+## 🎯 Business Problem
 
-### Layered Warehouse Design
+Residential property markets are influenced by multiple drivers:
 
-```
-CSV Upload
-↓
-housing_raw (Raw Layer)
-↓
-housing_transformed (Business Logic Layer)
-↓
-region_yearly_summary (Analytical View Layer)
-↓
-Power BI Executive Dashboard
-```
+- Property characteristics (size, type)
+- Regional demand
+- Macroeconomic indicators (inflation, interest rates, yield)
+- Offer vs final transaction pricing
+- Time-based sales trends
 
-### 🥉 Raw Layer — `housing_raw`
-- Direct CSV ingestion
+Stakeholders often lack a consolidated analytical view that answers:
+
+- Are property prices increasing year-over-year?
+- Which regions generate the highest sales volume?
+- How do macroeconomic conditions impact pricing?
+- What is the difference between offer and final purchase price?
+- Which property types drive revenue?
+
+This dashboard provides a centralized analytical view to support strategic decision-making.
+
+---
+
+## 👥 Intended Audience
+
+- Real estate investors  
+- Financial institutions  
+- Property development firms  
+- Market analysts  
+- Real estate boards  
+- Data-driven decision makers  
+
+---
+
+## 🏗 Data Architecture
+
+The project follows a layered warehouse approach inside BigQuery:
+
+### 1️⃣ Raw Layer  
+`housing_raw`
+
 - Immutable source data
-- No transformations applied
+- Direct CSV ingestion
+- No business logic applied
 
-### 🥈 Transformation Layer — `housing_transformed`
-- Business rule application
-- Cleaned reporting dataset
-- Separation of ingestion and analytics logic
+### 2️⃣ Transformed Layer  
+`housing_transformed`
 
-### 🥇 Analytical View — `region_yearly_summary`
-Pre-aggregated metrics by region and year:
+- Business rules applied
+- Data cleaning
+- Calculated columns
+- Structured for analytics consumption
+
+### 3️⃣ Analytical View  
+`region_yearly_summary`
+
+Pre-aggregated reporting layer:
+
 - Units sold
 - Total sales
 - Average sale price
-- Average price per sqm
+- Average price per SQM
+- Regional yearly breakdown
+
+This structure ensures:
+
+- Clean separation of concerns  
+- Maintainable SQL logic  
+- BI-ready modeling  
 
 ---
 
-## 🛠 Tech Stack
+## 📊 Dashboard Preview
 
-- **Google BigQuery**
-  - Layered warehouse design
-  - SQL transformations
-  - Analytical view creation
-- **Power BI**
-  - DAX time intelligence
-  - Date dimension modeling
-  - Executive dashboard design
-- **SQL Concepts**
-  - Aggregations
-  - Views
-  - Structured transformations
-  - Rebuildable warehouse scripting
+### 1️⃣ House Market Overview
+
+![House Market Overview](screenshots/01_house-market-overview.png)
+
+**Key Highlights:**
+
+- Latest quarter & year units sold
+- Last 12 months revenue
+- Offer vs Purchase price comparison
+- Median sales price change by region
+- YoY growth by sales type
 
 ---
 
-## 📊 Core KPIs Implemented (DAX)
+### 2️⃣ Sales Performance
 
-- Total YTD Sales  
-- Last 12 Months Sales  
-- YoY Sales Growth  
-- Median Sales Price Change  
-- Units Sold (Latest Year & Quarter)  
-- Sales by Region  
-- Offer to SQM Ratio  
-- Average Price per SQM  
+![Sales Performance](screenshots/02_sales-performance-analytics.png)
 
-All time-based calculations leverage a proper Date Dimension table.
+**Key Highlights:**
 
----
-
-## 📈 Insights Delivered
-
-### Market Performance
-- 13B+ Last 12 Months sales tracking
-- Year-to-date performance monitoring
-- Quarterly demand trends
-
-### Regional Analysis
-- Sales distribution by region
-- Median price growth by territory
-- High-performing investment zones
-
-### Property Type Analysis
-- Offer vs Purchase gap evaluation
-- SQM price comparison
-- Sales type growth trends
-
-### Macroeconomic Impact
-- Inflation rate correlation
-- Interest rate influence
-- Mortgage bond yield relationship
+- Sales by region
+- Average price per SQM
+- Offer-to-SQM ratio
+- Total Purchase Price vs YTD Sales
+- Key Influencers analysis
 
 ---
 
-## 📂 Repository Structure
-```
-housing-market-analytics-bigquery-powerbi/
-│
-├── sql/
-│   └── 01_housing_warehouse_setup.sql
-│
-├── screenshots/
-│   ├── 01_house-market-overview.png
-│   ├── 02_sales-performance-analytics.png
-│   └── 03_pricing-and-market-drivers.png
-│
-├── powerbi/
-│   └── denmark_housing_market_dashboard.pbix
-│
-└── README.md
-```
+### 3️⃣ Pricing & Market Drivers
+
+![Pricing & Market Drivers](screenshots/03_pricing-and-market-drivers.png)
+
+**Key Highlights:**
+
+- Offer vs final sale comparison by property type
+- Inflation / Interest / Yield analysis
+- SQM vs SQM Price breakdown
+- Cross-filterable insights by:
+  - Area
+  - City
+  - Region
+  - Sales Type
 
 ---
 
-## 🚀 How to Rebuild
+## 📈 Key Insights Generated
 
-1. Upload CSV into `housing_raw`
-2. Run `01_housing_warehouse_setup.sql`
-3. Connect Power BI to `housing_transformed`
-4. Refresh model
-
----
-
-## 🔮 Future Improvements
-
-- Table partitioning by date
-- Clustering by region
-- Incremental data pipeline simulation
-- Automated ingestion using Cloud Functions
-- Star schema normalization
-- KPI threshold alerts
+- Certain regions consistently outperform others in total sales volume.
+- Macroeconomic indicators show visible correlation with property pricing trends.
+- Offer prices and final purchase prices remain closely aligned in most segments.
+- Larger properties do not always imply higher price per SQM.
+- Year-over-year growth varies significantly across sales types.
 
 ---
 
-## 👤 Author
+## 🧮 Core DAX Measures
 
-**Prajwal Anand**  
-Aspiring Analytics Engineer | SQL | BigQuery | Power BI | Data Warehousing
+Examples of analytical measures implemented:
+
+- **Total YTD Sales**
+- **Last 12 Months Sales**
+- **YoY Sales Growth**
+- **Units Sold**
+- **Average Price per SQM**
+- **Offer to SQM Ratio**
+- Time intelligence using:
+  - `CALCULATE`
+  - `DATESINPERIOD`
+  - `TOTALYTD`
+
+---
+
+## 🗄 SQL Warehouse Script
+
+All warehouse setup logic is available in:
